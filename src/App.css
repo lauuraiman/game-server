@@ -1,0 +1,775 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap');
+
+html, body {
+  margin: 0 !important;
+  padding: 0 !important;
+  height: 100vh !important;
+  width: 100vw !important;
+  overflow: hidden !important;
+  background-color: #2b0c13 !important;
+  background-image: 
+    /* Четкие золотые акценты-кубики по углам */
+    radial-gradient(circle at 12% 18%, rgba(212, 175, 55, 0.22) 0%, rgba(212, 175, 55, 0.05) 15%, transparent 30%),
+    radial-gradient(circle at 88% 82%, rgba(212, 175, 55, 0.22) 0%, rgba(212, 175, 55, 0.05) 15%, transparent 30%),
+    radial-gradient(circle at 88% 18%, rgba(212, 175, 55, 0.18) 0%, transparent 25%),
+    radial-gradient(circle at 12% 82%, rgba(212, 175, 55, 0.18) 0%, transparent 25%),
+    linear-gradient(135deg, rgba(120, 20, 35, 0.25) 0%, rgba(25, 4, 9, 0.95) 100%) !important;
+  color: #f3e9d2 !important;
+  font-family: 'Inter', sans-serif !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+#root {
+  width: 100vw !important;
+  height: 100vh !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+/* ЭКРАН СОЗДАНИЯ КОМНАТЫ */
+.setup-screen {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  background: radial-gradient(circle, rgba(50, 12, 22, 0.85) 0%, rgba(18, 4, 9, 0.98) 100%) !important;
+}
+
+.setup-card {
+  background: rgba(35, 10, 18, 0.92) !important;
+  backdrop-filter: blur(12px) !important;
+  border: 1px solid rgba(212, 175, 55, 0.35) !important;
+  border-radius: 16px !important;
+  padding: 36px 44px !important;
+  width: 100% !important;
+  max-width: 480px !important;
+  text-align: center !important;
+  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.75), inset 0 0 25px rgba(212, 175, 55, 0.06) !important;
+  box-sizing: border-box !important;
+}
+
+.setup-card h1 {
+  margin: 0 0 10px 0 !important;
+  font-size: 28px !important;
+  font-weight: 700 !important;
+  color: #f3e9d2 !important;
+  font-family: 'Playfair Display', serif !important;
+  letter-spacing: 0.04em !important;
+}
+
+.setup-card .subtitle {
+  margin: 0 0 28px 0 !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  color: #d4af37 !important;
+  letter-spacing: 0.18em !important;
+  text-transform: uppercase !important;
+  font-family: 'Inter', sans-serif !important;
+}
+
+.room-code-box {
+  background: rgba(212, 175, 55, 0.08) !important;
+  border: 1px dashed rgba(212, 175, 55, 0.5) !important;
+  padding: 14px !important;
+  border-radius: 10px !important;
+  margin-bottom: 24px !important;
+  font-size: 14px !important;
+  color: #c5b358 !important;
+  font-family: 'Inter', sans-serif !important;
+}
+
+.room-code-box strong {
+  color: #f3e9d2 !important;
+  font-size: 18px !important;
+  margin-left: 8px !important;
+  font-weight: 700 !important;
+}
+
+.players-count-section, .players-names-section {
+  text-align: left !important;
+  margin-bottom: 20px !important;
+}
+
+.players-count-section label, .players-names-section label {
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  color: #d4af37 !important;
+  letter-spacing: 0.08em !important;
+  display: block !important;
+  margin-bottom: 8px !important;
+  font-family: 'Inter', sans-serif !important;
+  text-transform: uppercase !important;
+}
+
+.count-buttons {
+  display: flex !important;
+  gap: 10px !important;
+  justify-content: space-between !important;
+}
+
+.count-buttons button {
+  flex: 1 !important;
+  background: rgba(50, 15, 25, 0.85) !important;
+  border: 1px solid rgba(212, 175, 55, 0.35) !important;
+  color: #f3e9d2 !important;
+  padding: 12px 0 !important;
+  font-weight: 600 !important;
+  border-radius: 8px !important;
+  cursor: pointer !important;
+  font-family: 'Inter', sans-serif !important;
+  font-size: 14px !important;
+  transition: all 0.2s ease !important;
+}
+
+.count-buttons button:hover {
+  border-color: #d4af37 !important;
+  background: rgba(80, 20, 35, 0.95) !important;
+}
+
+.count-buttons button.active-count {
+  background: linear-gradient(135deg, #d4af37 0%, #aa8c2c 100%) !important;
+  color: #2b0c13 !important;
+  border-color: #f3e9d2 !important;
+  box-shadow: 0 0 18px rgba(212, 175, 55, 0.45) !important;
+  font-weight: 700 !important;
+}
+
+.setup-card input[type="text"] {
+  width: 100% !important;
+  background: rgba(20, 5, 10, 0.95) !important;
+  border: 1px solid rgba(212, 175, 55, 0.35) !important;
+  border-radius: 8px !important;
+  padding: 12px 16px !important;
+  color: #f3e9d2 !important;
+  font-family: 'Inter', sans-serif !important;
+  font-size: 14px !important;
+  box-sizing: border-box !important;
+  margin-bottom: 12px !important;
+  transition: all 0.2s ease !important;
+}
+
+.setup-card input[type="text"]:focus {
+  outline: none !important;
+  border-color: #d4af37 !important;
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.25) !important;
+}
+
+.start-game-btn {
+  width: 100% !important;
+  background: linear-gradient(135deg, #d4af37 0%, #aa8c2c 100%) !important;
+  color: #2b0c13 !important;
+  border: none !important;
+  padding: 14px !important;
+  font-weight: 700 !important;
+  font-size: 15px !important;
+  border-radius: 8px !important;
+  cursor: pointer !important;
+  box-shadow: 0 6px 18px rgba(212, 175, 55, 0.35) !important;
+  font-family: 'Inter', sans-serif !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  margin-top: 10px !important;
+  transition: all 0.2s ease !important;
+}
+
+.start-game-btn:hover {
+  background: linear-gradient(135deg, #e6c555, #c5a138) !important;
+  box-shadow: 0 8px 22px rgba(212, 175, 55, 0.55) !important;
+}
+
+/* ИГРОВОЕ ПОЛЕ */
+.game-board-container {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  height: 98vh !important;
+  width: 100% !important;
+  max-width: 1280px !important;
+  margin: 0 auto !important;
+  padding: 6px 16px !important;
+  box-sizing: border-box !important;
+}
+
+.players-panel {
+  display: flex !important;
+  gap: 14px !important;
+  width: 100% !important;
+  max-width: 1280px !important;
+  margin: 0 auto !important;
+  justify-content: space-between !important;
+  align-items: stretch !important;
+  box-sizing: border-box !important;
+}
+
+/* КАРТОЧКА ИГРОКА СО СКРОЛЛОМ И УЛУЧШЕННОЙ ТИПОГРАФИКОЙ */
+.player-card {
+  background: rgba(35, 10, 18, 0.9) !important;
+  backdrop-filter: blur(10px) !important;
+  border: 1px solid rgba(212, 175, 55, 0.35) !important;
+  border-radius: 12px !important;
+  padding: 12px 14px !important;
+  flex: 1 !important;
+  max-height: 200px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  text-align: left !important;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.55) !important;
+  box-sizing: border-box !important;
+  overflow-y: auto !important;
+}
+
+.player-card.active-turn {
+  border-color: #d4af37 !important;
+  box-shadow: 0 0 24px rgba(212, 175, 55, 0.45) !important;
+  background: rgba(48, 12, 24, 0.96) !important;
+}
+
+/* Шапка игрока */
+.player-header-inline {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.25) !important;
+  padding-bottom: 6px !important;
+  margin-bottom: 6px !important;
+  font-size: 13px !important;
+  color: #c5b358 !important;
+  gap: 3px !important;
+}
+
+.player-header-inline h3 {
+  margin: 0 0 2px 0 !important;
+  font-size: 16px !important;
+  font-weight: 700 !important;
+  color: #f3e9d2 !important;
+  font-family: 'Playfair Display', serif !important;
+  letter-spacing: 0.02em !important;
+}
+
+.player-header-inline span {
+  font-size: 13px !important;
+  white-space: nowrap !important;
+  font-family: 'Inter', sans-serif !important;
+}
+
+.player-meta-tag {
+  background: rgba(212, 175, 55, 0.09) !important;
+  border-left: 3px solid #d4af37 !important;
+  font-size: 13px !important;
+  color: #f3e9d2 !important;
+  padding: 5px 8px !important;
+  margin: 3px 0 !important;
+  text-align: left !important;
+  border-radius: 0 6px 6px 0 !important;
+  word-break: break-word !important;
+  line-height: 1.35 !important;
+  font-family: 'Inter', sans-serif !important;
+}
+
+/* Блок секторов с бегунком */
+.player-levels-grid {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 5px !important;
+  margin: 6px 0 !important;
+  text-align: left !important;
+  background: rgba(20, 5, 10, 0.7) !important;
+  padding: 8px 10px !important;
+  border-radius: 8px !important;
+  box-sizing: border-box !important;
+  border: 1px solid rgba(212, 175, 55, 0.2) !important;
+}
+
+.level-column-item {
+  display: flex !important;
+  flex-direction: column !important;
+  font-size: 12px !important;
+  border-bottom: 1px dashed rgba(212, 175, 55, 0.2) !important;
+  padding-bottom: 4px !important;
+}
+
+.lvl-title {
+  color: #d4af37 !important;
+  font-weight: 600 !important;
+  font-size: 12px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.06em !important;
+  font-family: 'Inter', sans-serif !important;
+}
+
+.lvl-value {
+  color: #f3e9d2 !important;
+  font-size: 13px !important;
+  margin-top: 3px !important;
+  word-break: break-word !important;
+  font-family: 'Inter', sans-serif !important;
+  line-height: 1.3 !important;
+}
+
+/* ЦЕНТРАЛЬНОЕ ИГРОВОЕ ПОЛЕ С ОБНОВЛЕННЫМ ФОНОМ */
+.infinity-board {
+  position: relative !important;
+  width: 100% !important;
+  max-width: 1280px !important;
+  margin: 6px auto !important;
+  flex-grow: 1 !important;
+  border: 1px solid rgba(212, 175, 55, 0.4) !important;
+  border-radius: 18px !important;
+  padding: 16px 24px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-around !important;
+  align-items: stretch !important;
+  background-color: #23080d !important;
+  background-image: 
+    /* Яркие золотые кубики/кости по углам игрового поля */
+    radial-gradient(circle at 7% 15%, rgba(212, 175, 55, 0.28) 0%, rgba(212, 175, 55, 0.08) 16%, transparent 32%),
+    radial-gradient(circle at 93% 15%, rgba(212, 175, 55, 0.28) 0%, rgba(212, 175, 55, 0.08) 16%, transparent 32%),
+    radial-gradient(circle at 7% 85%, rgba(212, 175, 55, 0.28) 0%, rgba(212, 175, 55, 0.08) 16%, transparent 32%),
+    radial-gradient(circle at 93% 85%, rgba(212, 175, 55, 0.28) 0%, rgba(212, 175, 55, 0.08) 16%, transparent 32%),
+    /* Круговые декоративные иероглифы */
+    radial-gradient(circle at 30% 25%, rgba(212, 175, 55, 0.1) 0%, transparent 24%),
+    radial-gradient(circle at 70% 75%, rgba(212, 175, 55, 0.1) 0%, transparent 24%),
+    radial-gradient(circle, rgba(55, 12, 23, 0.8) 0%, rgba(18, 4, 9, 0.96) 100%) !important;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.65), inset 0 0 30px rgba(212, 175, 55, 0.07) !important;
+  box-sizing: border-box !important;
+  overflow: hidden !important;
+}
+
+.phase-section {
+  position: relative !important;
+  z-index: 2 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 8px !important;
+  width: 100% !important;
+}
+
+.phase-title {
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.12em !important;
+  color: #d4af37 !important;
+  text-align: center !important;
+  text-transform: uppercase !important;
+  font-family: 'Inter', sans-serif !important;
+}
+
+.cells-row {
+  display: flex !important;
+  gap: 12px !important;
+  justify-content: space-between !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+.board-cell {
+  background: rgba(35, 10, 18, 0.9) !important;
+  backdrop-filter: blur(8px) !important;
+  border: 1px solid rgba(212, 175, 55, 0.35) !important;
+  padding: 10px 8px !important;
+  border-radius: 10px !important;
+  font-size: 13px !important;
+  text-align: center !important;
+  flex: 1 !important;
+  min-height: 48px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35) !important;
+  transition: all 0.2s ease !important;
+}
+
+.board-cell span {
+  color: #f3e9d2 !important;
+  font-weight: 500 !important;
+  font-family: 'Inter', sans-serif !important;
+  line-height: 1.3 !important;
+}
+
+.active-cell-glow {
+  border-color: #d4af37 !important;
+  box-shadow: 0 0 22px rgba(212, 175, 55, 0.55) !important;
+  background: rgba(60, 16, 29, 0.96) !important;
+}
+
+/* РОДИТЕЛЬСКИЙ КОНТЕЙНЕР ДЛЯ СТАРТА И ПРАВИЛ ИГРЫ — СТРОГО В РЯД РЯДОМ */
+.center-action-node {
+  position: relative !important;
+  z-index: 2 !important;
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 16px !important;
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+/* ДВЕ РАМОЧКИ ДЛЯ СТАРТА И ПРАВИЛ ИГРЫ */
+.center-action-node > div,
+.center-action-node > a,
+.center-action-node > button,
+.cell-center {
+  background: linear-gradient(135deg, rgba(55, 12, 23, 0.95), rgba(30, 8, 15, 0.95)) !important;
+  border: 2px solid #d4af37 !important;
+  flex: 0 0 220px !important;
+  width: 220px !important;
+  min-height: 50px !important;
+  box-shadow: 0 0 28px rgba(212, 175, 55, 0.4) !important;
+  border-radius: 10px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
+  padding: 8px 12px !important;
+  box-sizing: border-box !important;
+}
+
+.tokens-on-cell {
+  display: flex !important;
+  gap: 5px !important;
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+  margin-top: 4px !important;
+}
+
+.player-token {
+  background: linear-gradient(135deg, #d4af37 0%, #aa8c2c 100%) !important;
+  color: #2b0c13 !important;
+  font-weight: 700 !important;
+  font-size: 11px !important;
+  padding: 3px 8px !important;
+  border-radius: 5px !important;
+  border: 1px solid rgba(243, 233, 210, 0.5) !important;
+  font-family: 'Inter', sans-serif !important;
+}
+
+.control-panel {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 16px !important;
+  background: rgba(35, 10, 18, 0.92) !important;
+  backdrop-filter: blur(10px) !important;
+  border: 1px solid rgba(212, 175, 55, 0.35) !important;
+  padding: 12px 20px !important;
+  border-radius: 14px !important;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.55) !important;
+  width: 100% !important;
+  max-width: 1280px !important;
+  margin: 0 auto !important;
+  box-sizing: border-box !important;
+}
+
+.active-player-info {
+  font-size: 14px !important;
+  color: #f3e9d2 !important;
+  font-weight: 600 !important;
+  font-family: 'Inter', sans-serif !important;
+}
+
+.dice-btn, .next-turn-btn, .modal-content button, .approve-btn {
+  background: linear-gradient(135deg, #d4af37 0%, #aa8c2c 100%) !important;
+  color: #2b0c13 !important;
+  border: none !important;
+  padding: 10px 18px !important;
+  font-weight: 700 !important;
+  font-size: 13px !important;
+  border-radius: 8px !important;
+  cursor: pointer !important;
+  box-shadow: 0 4px 14px rgba(212, 175, 55, 0.35) !important;
+  font-family: 'Inter', sans-serif !important;
+  transition: all 0.2s ease !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.06em !important;
+}
+
+.dice-btn:hover, .next-turn-btn:hover, .modal-content button:hover, .approve-btn:hover {
+  background: linear-gradient(135deg, #e6c555, #c5a138) !important;
+  box-shadow: 0 6px 18px rgba(212, 175, 55, 0.55) !important;
+}
+
+.dice-result, .year-card-result {
+  font-size: 13px !important;
+  color: #f3e9d2 !important;
+  background: rgba(20, 5, 10, 0.9) !important;
+  padding: 8px 14px !important;
+  border-radius: 8px !important;
+  border: 1px solid rgba(212, 175, 55, 0.35) !important;
+  font-weight: 600 !important;
+  font-family: 'Inter', sans-serif !important;
+}
+
+.modal-overlay {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  background: rgba(20, 5, 10, 0.88) !important;
+  backdrop-filter: blur(10px) !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  z-index: 100 !important;
+}
+
+.modal-content {
+  background: rgba(35, 10, 18, 0.96) !important;
+  border: 1px solid rgba(212, 175, 55, 0.45) !important;
+  padding: 28px !important;
+  border-radius: 16px !important;
+  max-width: 440px !important;
+  width: 100% !important;
+  text-align: center !important;
+  box-shadow: 0 24px 45px rgba(0, 0, 0, 0.75) !important;
+}
+
+.modal-content textarea {
+  width: 100% !important;
+  background: rgba(20, 5, 10, 0.95) !important;
+  border: 1px solid rgba(212, 175, 55, 0.35) !important;
+  border-radius: 8px !important;
+  padding: 12px !important;
+  color: #f3e9d2 !important;
+  font-family: 'Inter', sans-serif !important;
+  font-size: 14px !important;
+  box-sizing: border-box !important;
+  margin: 14px 0 !important;
+  resize: none !important;
+  height: 90px !important;
+}
+
+.question-text {
+  font-size: 14px !important;
+  color: #e2d7be !important;
+  margin-bottom: 14px !important;
+  line-height: 1.5 !important;
+  font-family: 'Inter', sans-serif !important;
+}
+
+/* СТАБИЛЬНЫЙ ЦЕНТРАЛЬНЫЙ ДРАКОН С ПЛАВНЫМ ПУЛЬСИРУЮЩИМ СВЕЧЕНИЕМ ФОНА */
+.infinity-board::after {
+  content: "" !important;
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  width: 720px !important;
+  height: 500px !important;
+  background-image: url('./assets/dragon-gold.png') !important;
+  background-size: contain !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  z-index: 1 !important;
+  pointer-events: none !important;
+  filter: drop-shadow(0 0 30px rgba(212, 175, 55, 0.35)) !important;
+  animation: dragonGlowPulse 5s ease-in-out infinite alternate !important;
+}
+
+@keyframes dragonGlowPulse {
+  0% {
+    filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.25));
+  }
+  100% {
+    filter: drop-shadow(0 0 45px rgba(212, 175, 55, 0.6));
+  }
+}
+
+/* МОБИЛЬНАЯ ВЕРСИЯ */
+@media screen and (max-width: 768px) {
+  html, body {
+    height: auto !important;
+    min-height: 100vh !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  #root, .game-board-container {
+    width: 100% !important;
+    height: auto !important;
+    min-height: 100vh !important;
+    padding: 8px !important;
+    box-sizing: border-box !important;
+    justify-content: flex-start !important;
+    gap: 12px !important;
+  }
+
+  .players-panel {
+    flex-direction: column !important;
+    gap: 10px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .player-card {
+    max-height: none !important;
+    height: auto !important;
+    width: 100% !important;
+    padding: 12px !important;
+  }
+
+  .infinity-board {
+    width: 100% !important;
+    height: auto !important;
+    padding: 16px 10px !important;
+    box-sizing: border-box !important;
+    overflow: visible !important;
+  }
+
+  .infinity-board::after {
+    width: 100% !important;
+    height: 340px !important;
+    top: 52% !important;
+    opacity: 0.4 !important;
+  }
+
+  .cells-row {
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+    justify-content: center !important;
+  }
+
+  .board-cell {
+    flex: 1 1 45% !important;
+    min-width: 135px !important;
+    max-width: 48% !important;
+    min-height: 54px !important;
+    padding: 8px !important;
+    box-sizing: border-box !important;
+  }
+
+  .phase-title {
+    font-size: 12px !important;
+    margin: 14px 0 8px 0 !important;
+    letter-spacing: 0.08em !important;
+  }
+
+  .center-action-node {
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+    margin: 10px 0 !important;
+  }
+
+  .center-action-node > div,
+  .center-action-node > a,
+  .center-action-node > button,
+  .cell-center {
+    flex: 1 1 45% !important;
+    max-width: 48% !important;
+    width: auto !important;
+    min-height: 44px !important;
+  }
+
+  .control-panel {
+    flex-direction: column !important;
+    gap: 10px !important;
+    width: 100% !important;
+    padding: 14px !important;
+    box-sizing: border-box !important;
+    margin-bottom: 24px !important;
+  }
+
+  .control-panel > * {
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .dice-btn, .next-turn-btn, .approve-btn {
+    width: 100% !important;
+    padding: 12px !important;
+    font-size: 14px !important;
+  }
+}
+
+/* ШРИФТЫ ЗАГОЛОВКОВ */
+.modal-content h2, 
+.modal-content h3, 
+.card-modal-title,
+.random-card-title,
+div[class*="modal"] h2,
+div[class*="modal"] h3,
+h1, h2, h3, h4, .title {
+  color: #f3e9d2 !important;
+  font-weight: 700 !important;
+  font-family: 'Playfair Display', serif !important;
+}
+
+.modal-content p,
+.modal-content span,
+.card-description {
+  color: #e2d7be !important;
+  font-family: 'Inter', sans-serif !important;
+}
+
+/* Контейнер для переключателей-табов сверху */
+.mobile-players-tabs {
+  display: none; /* На десктопе скрываем */
+}
+
+@media screen and (max-width: 768px) {
+  /* Показываем табы только на мобилках */
+  .mobile-players-tabs {
+    display: flex !important;
+    gap: 6px !important;
+    overflow-x: auto !important;
+    width: 100% !important;
+    padding: 4px 2px 10px 2px !important;
+    box-sizing: border-box !important;
+    -webkit-overflow-scrolling: touch;
+    justify-content: flex-start !important;
+  }
+
+  /* Кнопка-таб отдельного игрока */
+  .player-tab-btn {
+    background: rgba(35, 10, 18, 0.9) !important;
+    border: 1px solid rgba(212, 175, 55, 0.35) !important;
+    color: #f3e9d2 !important;
+    padding: 8px 12px !important;
+    border-radius: 8px !important;
+    font-size: 12px !important;
+    font-weight: 600 !important;
+    white-space: nowrap !important;
+    cursor: pointer !important;
+    font-family: 'Inter', sans-serif !important;
+    transition: all 0.2s ease !important;
+    flex-shrink: 0 !important;
+  }
+
+  /* Активный игрок в табах */
+  .player-tab-btn.active-tab {
+    background: linear-gradient(135deg, #d4af37 0%, #aa8c2c) !important;
+    color: #2b0c13 !important;
+    border-color: #f3e9d2 !important;
+    box-shadow: 0 0 12px rgba(212, 175, 55, 0.4) !important;
+    font-weight: 700 !important;
+  }
+
+  /* На мобилке скрываем стандартную панель со всеми карточками сразу */
+  .players-panel {
+    display: none !important;
+  }
+
+  /* Контейнер для показа ТОЛЬКО выбранной карточки игрока */
+  .active-player-mobile-container {
+    display: flex !important;
+    width: 100% !important;
+    margin-bottom: 4px !important;
+  }
+
+  .active-player-mobile-container .player-card {
+    max-height: 280px !important; /* Делаем карточку чуть просторнее на мобилке */
+    width: 100% !important;
+    flex: 1 !important;
+  }
+}
